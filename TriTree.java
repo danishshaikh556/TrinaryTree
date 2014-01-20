@@ -11,7 +11,7 @@ public class TriTree {
 	//Wrapper Class 
 	public void insertInTree(int value)
 	{
-		if(root == null)
+		/*if(root == null)
 		{
 		 root = new Node();
 		 root.nodeValue=value;
@@ -19,7 +19,7 @@ public class TriTree {
 		 root.rightChild=null;
 		 root.middleChild=null;
 		 }
-		else  root = insert(root,value);
+		else*/  root = insert(root,value);
 	}
 		
 		
@@ -54,6 +54,23 @@ public class TriTree {
 			System.out.println(nodeToPrint.nodeValue);
 			printInOrder(nodeToPrint.middleChild);
 			printInOrder(nodeToPrint.rightChild);
+		}
+	}
+	
+	public void delete()
+	{
+		postOrder(root);
+	}
+	
+	private void postOrder(Node finish)
+	{
+		if(finish != null)
+		{
+			postOrder(finish.leftChild);
+			postOrder(finish.middleChild);
+			postOrder(finish.rightChild);
+			System.out.println("Deleted" + finish.nodeValue);
+			finish=null;
 		}
 	}
 private Node root;
