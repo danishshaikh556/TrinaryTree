@@ -1,4 +1,3 @@
-
 public class TriTree {
 	
 	//Constructor for tree
@@ -51,9 +50,10 @@ public class TriTree {
 	
 	public void delete()
 	{
-		postOrder(root);
+		root=deletepostOrder(root);
 	}
 	
+	//Use this function to only print in post order
 	private void postOrder(Node finish)
 	{
 		if(finish != null)
@@ -64,6 +64,20 @@ public class TriTree {
 			System.out.println("Deleted" + finish.nodeValue);
 			finish=null;
 		}
+	}
+	
+	//Use this function to delete using post order
+	private Node deletepostOrder(Node finish)
+	{
+		if(finish != null)
+		{
+			finish.leftChild=postOrder(finish.leftChild);
+			finish.middleChild=postOrder(finish.middleChild);
+			finish.rightChild=postOrder(finish.rightChild);
+			System.out.println("Deleted" + finish.nodeValue);
+			finish=null;
+		}
+		return finish;
 	}
 private Node root;
 }
