@@ -11,15 +11,7 @@ public class TriTree {
 	//Wrapper Class 
 	public void insertInTree(int value)
 	{
-		/*if(root == null)
-		{
-		 root = new Node();
-		 root.nodeValue=value;
-		 root.leftChild=null;
-		 root.rightChild=null;
-		 root.middleChild=null;
-		 }
-		else*/  root = insert(root,value);
+		root = insert(root,value);
 	}
 		
 		
