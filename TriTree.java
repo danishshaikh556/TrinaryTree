@@ -16,18 +16,18 @@ public class TriTree {
 		
 	private Node insert(Node start, int value)
 	{
-		if(start==null)
+		if(start == null)
 		{
 			start=new Node();
-			start.nodeValue=value;
-			start.leftChild=null;
-			start.middleChild=null;
-			start.rightChild=null;
+			start.nodeValue   = value;
+			start.leftChild   = null;
+			start.middleChild = null;
+			start.rightChild  = null;
 		
 	   }
-		else if(start.nodeValue == value) start.middleChild = insert(start.middleChild,value);
-		else if (start.nodeValue < value) start.rightChild =insert(start.rightChild,value);
-		else if (start.nodeValue > value) start.leftChild=insert(start.leftChild,value);
+		else if (start.nodeValue == value) start.middleChild = insert(start.middleChild,value);
+		else if (start.nodeValue <  value) start.rightChild  = insert(start.rightChild,value);
+		else if (start.nodeValue >  value) start.leftChild   = insert(start.leftChild,value);
 		
 		return start;
 	}
@@ -50,7 +50,7 @@ public class TriTree {
 	
 	public void delete()
 	{
-		root=deletepostOrder(root);
+		root = deletepostOrder(root);
 	}
 	
 	//Use this function to only print in post order
@@ -71,11 +71,11 @@ public class TriTree {
 	{
 		if(finish != null)
 		{
-			finish.leftChild=postOrder(finish.leftChild);
-			finish.middleChild=postOrder(finish.middleChild);
-			finish.rightChild=postOrder(finish.rightChild);
+			finish.leftChild   = postOrder(finish.leftChild);
+			finish.middleChild = postOrder(finish.middleChild);
+			finish.rightChild  = postOrder(finish.rightChild);
 			System.out.println("Deleted" + finish.nodeValue);
-			finish=null;
+			finish             = null;
 		}
 		return finish;
 	}
